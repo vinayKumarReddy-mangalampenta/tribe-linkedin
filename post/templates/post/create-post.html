@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="create-post-con">
+    <h1 class="heading">new post</h1>
+    <div class="post-user-info">
+        <img src="https://media-exp1.licdn.com/dms/image/C5603AQEG_YU1Be8oxQ/profile-displayphoto-shrink_800_800/0/1661083072881?e=1675296000&v=beta&t=VUgBxpYiJR30UhC0GLv1xfWtCKO5y3AxLACREXkYVvk"
+            alt="avatar" class="post-user-avatar" />
+        <div class="post-user-bio">
+            <h1 class="post-user-name">{{request.user.profile.name}}</h1>
+            <span class="post-user-tag">{{request.user.profile.about}}</span>
+        </div>
+    </div>
+    <form method="post" action="" class="create-post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+
+
+        {{form.as_p}}
+
+
+
+        <input type="submit" class="btn btn--submit" value="post" />
+    </form>
+</div>
+
+{% endblock %}

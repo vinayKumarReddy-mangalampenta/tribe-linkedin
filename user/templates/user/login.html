@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="login-con">
+    <h1 class="heading">login</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <div class="input-con">
+            <label class="input--label" for="username">Username :</label>
+            <input type="text" class="input" name="username" />
+        </div>
+
+        <div class="input-con">
+            <label class="input--label" for="username">password:</label>
+            <input type="password" class="input" placeholder="••••••••••••" name="password" />
+        </div>
+
+        <input type="submit" class="btn btn--submit" value="sign in" />
+
+        <p>dont't have an account..! <a class="link" href="{% url 'register' %}">register</a></p>
+    </form>
+</div>
+
+{% endblock %}

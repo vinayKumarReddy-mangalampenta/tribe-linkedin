@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="login-con">
+    <h1 class="heading">Register</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="input-con">
+            <label class="input--label" for="{{field.id}}">{{field.label}}:</label>
+            {{field}}
+            <!-- {% if field.help_text %}
+            <span class="help_text">
+                {{field.help_text}}
+            </span>
+            {% endif %} -->
+            {% if field.errors %}
+            <span class="errors">
+                {{field.errors}}
+            </span>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <input type="submit" class="btn btn--submit" value="sign up" />
+
+        <p >already have an account..! <a class="link" href="{% url 'login' %}" >login</a></p>
+    </form>
+</div>
+
+{% endblock %}

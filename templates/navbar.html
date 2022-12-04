@@ -1,0 +1,27 @@
+<div class="navbar">
+    <div class="logo-con">
+        <span class="logo">
+            V
+        </span>
+        <span class="logo-text">
+            Vinay
+        </span>
+    </div>
+
+    <div class="input--search-con">
+        <span class="search-icon">&#128269; </span>
+        <input type="text" class="input input--search" placeholder="search...." />
+    </div>
+
+    <div>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'create-post' %}" class="btn btn--login">new post</a>
+        <a href="{% url 'logout' %}" class="btn btn--login">Logout</a>
+
+        {% else %}
+        <a href="{% url 'login' %}" class="btn btn--login">Log in</a>
+        {% endif %}
+
+    </div>
+
+</div>
